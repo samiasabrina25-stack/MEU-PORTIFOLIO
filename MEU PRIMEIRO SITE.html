@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samia Sabrina | Engenharia da Computação</title>
+
+<meta name="description" content="Portfólio tecnológico de Samia Sabrina, estudante de Engenharia da Computação.">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg:#050816;
+    --panel:#0d1730;
+    --blue:#00dcff;
+    --purple:#985cff;
+    --text:#f4f7ff;
+    --muted:#a3b1ca;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body {
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:
+    linear-gradient(#00d9ff09 1px,transparent 1px),
+    linear-gradient(90deg,#00d9ff09 1px,transparent 1px);
+    background-size:40px 40px;
+}
+
+a {text-decoration:none;color:inherit}
+
+.container {
+    width:min(1150px,90%);
+    margin:auto;
+}
+
+/* MENU */
+
+header {
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    background:#050816df;
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #00dcff25;
+}
+
+.nav {
+    height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo {
+    font-family:'Orbitron';
+    color:var(--blue);
+    font-weight:800;
+    font-size:17px;
+}
+
+.nav-links {
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a {
+    font-size:12px;
+    color:#c7d1e6;
+    transition:.3s;
+}
+
+.nav-links a:hover {color:var(--blue)}
+
+.menu-btn {
+    display:none;
+    background:none;
+    border:none;
+    color:var(--blue);
+    font-size:27px;
+    cursor:pointer;
+}
+
+/* APRESENTAÇÃO */
+
+.hero {
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+    gap:30px;
+    padding-top:100px;
+}
+
+.status {
+    display:inline-block;
+    border:1px solid #00dcff66;
+    padding:9px 15px;
+    border-radius:30px;
+    color:var(--blue);
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero h1 {
+    font-family:'Orbitron';
+    font-size:clamp(40px,6vw,72px);
+    line-height:1.15;
+    margin-bottom:20px;
+}
+
+.hero h1 span {
+    color:var(--blue);
+    text-shadow:0 0 25px #00dcff66;
+}
+
+.hero h2 {
+    font-size:18px;
+    font-weight:400;
+    color:#b9c8e3;
+    margin-bottom:20px;
+}
+
+.hero p {
+    max-width:580px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+.actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+    margin-top:30px;
+}
+
+.btn {
+    display:inline-block;
+    padding:14px 22px;
+    border-radius:7px;
+    font-size:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.primary {
+    background:var(--blue);
+    color:#06101d;
+}
+
+.secondary {
+    border:1px solid var(--blue);
+    color:var(--blue);
+}
+
+.btn:hover {
+    transform:translateY(-5px);
+    box-shadow:0 0 25px #00dcff55;
+}
+
+/* ELEMENTO 3D CENTRAL */
+
+.scene {
+    height:420px;
+    display:grid;
+    place-items:center;
+    perspective:1000px;
+}
+
+.orbit {
+    width:280px;
+    height:280px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:float 6s ease-in-out infinite;
+}
+
+.core {
+    position:absolute;
+    inset:65px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 25%,#c8faff,#00a5ed 35%,#301477 75%,#080c28);
+    box-shadow:0 0 35px #00d9ff,0 0 90px #008cff88;
+    display:grid;
+    place-items:center;
+    font-family:'Orbitron';
+    font-size:34px;
+}
+
+.ring {
+    position:absolute;
+    inset:15px;
+    border:2px solid #00dcff99;
+    border-radius:50%;
+    transform:rotateX(70deg);
+}
+
+.ring.two {
+    inset:-10px;
+    border-color:#985cff;
+    transform:rotateY(70deg) rotateX(30deg);
+    animation:spin 12s linear infinite;
+}
+
+.ring.three {
+    inset:35px;
+    border-color:#ffffff55;
+    transform:rotateX(80deg) rotateY(60deg);
+    animation:spinback 15s linear infinite;
+}
+
+@keyframes float {
+    50% {transform:translateY(-20px) rotateX(8deg)}
+}
+
+@keyframes spin {
+    to {transform:rotateY(430deg) rotateX(30deg)}
+}
+
+@keyframes spinback {
+    to {transform:rotateX(440deg) rotateY(60deg)}
+}
+
+/* SEÇÕES */
+
+section:not(.hero) {
+    padding:90px 0;
+}
+
+.label {
+    color:var(--blue);
+    font-family:'Orbitron';
+    font-size:11px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.title {
+    font-family:'Orbitron';
+    font-size:clamp(25px,4vw,37px);
+    margin-bottom:20px;
+}
+
+.description {
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:35px;
+    max-width:750px;
+}
+
+/* SOBRE */
+
+.about-box {
+    background:linear-gradient(135deg,#101c3b,#090f20);
+    padding:35px;
+    border:1px solid #00dcff33;
+    border-radius:15px;
+}
+
+.about-box p {
+    color:#c0cce1;
+    line-height:2;
+}
+
+/* HARDWARE 3D */
+
+.hardware-section {
+    background:radial-gradient(ellipse at center,#101c3b,#050816 75%);
+}
+
+.hardware-gallery {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    perspective:1000px;
+}
+
+.hardware-card {
+    height:290px;
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid #00dcff44;
+    background:#101a32;
+    transform-style:preserve-3d;
+    will-change:transform;
+    transition:box-shadow .3s,border-color .3s;
+}
+
+.hardware-card img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.8;
+    transition:transform .2s;
+}
+
+.hardware-card:hover {
+    border-color:var(--blue);
+    box-shadow:0 0 25px #00dcff66,0 0 45px #985cff33;
+}
+
+.hardware-info {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:50px 18px 20px;
+    background:linear-gradient(transparent,#050816);
+    transform:translateZ(35px);
+    pointer-events:none;
+}
+
+.hardware-info h3 {
+    font-family:'Orbitron';
+    font-size:12px;
+    color:var(--blue);
+}
+
+.hardware-info p {
+    font-size:12px;
+    margin-top:6px;
+}
+
+.hardware-card::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:0;
+    pointer-events:none;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#00dcff55,transparent 45%);
+    transition:opacity .3s;
+}
+
+.hardware-card:hover::after {opacity:1}
+
+/* PAINEL TECNOLÓGICO */
+
+.circuit-panel {
+    margin-top:50px;
+    padding:35px;
+    display:flex;
+    justify-content:space-around;
+    gap:25px;
+    flex-wrap:wrap;
+    border:1px solid #174a70;
+    border-radius:15px;
+    background:linear-gradient(120deg,#07152b,#111b3a,#07152b);
+}
+
+.circuit-item {
+    text-align:center;
+}
+
+.circuit-item span {
+    display:block;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.circuit-item strong {
+    color:var(--blue);
+    font-family:'Orbitron';
+    font-size:10px;
+}
+
+/* CARDS DE PROJETOS */
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card {
+    padding:28px;
+    border:1px solid #00dcff22;
+    border-radius:13px;
+    background:linear-gradient(145deg,#101b37,#090f20);
+    transform-style:preserve-3d;
+    transition:.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px);
+    border-color:var(--blue);
+    box-shadow:0 12px 35px #00dcff22;
+}
+
+.card-icon {
+    font-size:34px;
+    display:block;
+    margin-bottom:18px;
+}
+
+.card h3 {
+    color:var(--blue);
+    font-size:16px;
+    margin-bottom:12px;
+}
+
+.card p {
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* HABILIDADES */
+
+.skills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill {
+    border:1px solid #00dcff55;
+    background:#00dcff0d;
+    color:#bcefff;
+    padding:12px 18px;
+    border-radius:6px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.skill:hover {
+    background:var(--blue);
+    color:#06101d;
+}
+
+/* CONTATO */
+
+.contact-panel {
+    text-align:center;
+    padding:60px 25px;
+    border-radius:18px;
+    border:1px solid #00dcff44;
+    background:radial-gradient(ellipse at top,#12305a,#0c1429);
+}
+
+.contact-panel p {
+    color:var(--muted);
+    line-height:1.8;
+    max-width:600px;
+    margin:15px auto 25px;
+}
+
+footer {
+    padding:30px;
+    text-align:center;
+    color:#8491ab;
+    font-size:12px;
+    border-top:1px solid #00dcff22;
+}
+
+footer span {color:var(--blue)}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    z-index:90;
+    width:58px;
+    height:58px;
+    display:grid;
+    place-items:center;
+    background:#20c96b;
+    color:white;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:0 0 25px #20c96b66;
+}
+
+/* ANIMAÇÕES */
+
+.reveal {
+    opacity:0;
+    transform:translateY(30px);
+    transition:.8s;
+}
+
+.reveal.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* CELULAR */
+
+@media(max-width:850px) {
+    .hero {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p {margin:auto}
+    .actions {justify-content:center}
+    .hardware-gallery {grid-template-columns:repeat(2,1fr)}
+    .grid {grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px) {
+    .menu-btn {display:block}
+
+    .nav-links {
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#080e20;
+        padding:25px;
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .nav-links.active {display:flex}
+    .hardware-gallery,.grid {grid-template-columns:1fr}
+    .hardware-card {height:260px}
+    .hero h1 {font-size:42px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation:none!important;
+        scroll-behavior:auto!important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+    <a class="logo" href="#inicio">SAMIA.SABRINA</a>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#inicio" onclick="closeMenu()">INÍCIO</a>
+        <a href="#sobre" onclick="closeMenu()">SOBRE</a>
+        <a href="#hardware" onclick="closeMenu()">HARDWARE</a>
+        <a href="#projetos" onclick="closeMenu()">PROJETOS</a>
+        <a href="#contato" onclick="closeMenu()">CONTATO</a>
+    </nav>
+
+</div>
+</header>
+
+<main>
+
+<!-- INÍCIO -->
+
+<div class="container hero" id="inicio">
+
+    <div>
+        <div class="status">PORTFÓLIO PROFISSIONAL</div>
+
+        <h1>SAMIA<br><span>SABRINA</span></h1>
+
+        <h2>Estudante de Engenharia da Computação</h2>
+
+        <p>
+            Tecnologia, programação, engenharia e inovação.
+            Transformando conhecimento em projetos e ideias
+            em soluções digitais.
+        </p>
+
+        <div class="actions">
+            <a href="#projetos" class="btn primary">MEUS PROJETOS →</a>
+
+            <a href="https://www.linkedin.com/in/samia-sabrina-2a972a3ba/"
+            target="_blank" rel="noopener noreferrer"
+            class="btn secondary">LINKEDIN ↗</a>
+        </div>
+    </div>
+
+    <div class="scene">
+        <div class="orbit">
+            <div class="ring"></div>
+            <div class="ring two"></div>
+            <div class="ring three"></div>
+            <div class="core">&lt;/&gt;</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+<div class="container reveal">
+
+    <div class="label">01 / SOBRE MIM</div>
+    <h2 class="title">Conhecimento em construção.</h2>
+
+    <div class="about-box">
+        <p>
+            Sou Samia Sabrina, estudante de Engenharia da Computação,
+            com interesse em tecnologia da informação, desenvolvimento
+            de software, redes de computadores e inovação.
+            <br><br>
+            Durante minha formação, venho desenvolvendo conhecimentos
+            em programação, algoritmos, sistemas computacionais,
+            eletrônica e fundamentos de engenharia de software.
+            <br><br>
+            Busco aprimorar minhas habilidades por meio de projetos
+            acadêmicos e experiências práticas. Sou comprometida,
+            organizada e tenho disposição para aprender continuamente.
+            Meu objetivo é construir uma carreira sólida na tecnologia.
+        </p>
+    </div>
+
+</div>
+</section>
+
+<!-- HARDWARE -->
+
+<section class="hardware-section" id="hardware">
+<div class="container">
+
+    <div class="reveal">
+        <div class="label">02 / TECHNOLOGY LAB</div>
+        <h2 class="title">O universo da tecnologia.</h2>
+        <p class="description">
+            Explore os componentes, sistemas e estruturas
+            que fazem a tecnologia acontecer.
+            Passe o mouse sobre as imagens e veja o efeito 3D.
+        </p>
+    </div>
+
+    <div class="hardware-gallery reveal">
+
+        <div class="hardware-card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85"
+            alt="Placa eletrônica">
+            <div class="hardware-info">
+                <h3>CIRCUITOS ELETRÔNICOS</h3>
+                <p>Eletrônica e engenharia digital</p>
+            </div>
+        </div>
+
+        <div class="hardware-card">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85"
+            alt="Servidores">
+            <div class="hardware-info">
+                <h3>DATA CENTER</h3>
+                <p>Servidores e infraestrutura de TI</p>
+            </div>
+        </div>
+
+        <div class="hardware-card">
+            <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=85"
+            alt="Hardware de computador">
+            <div class="hardware-info">
+                <h3>HARDWARE</h3>
+                <p>Componentes computacionais</p>
+            </div>
+        </div>
+
+        <div class="hardware-card">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=85"
+            alt="Tecnologia digital">
+            <div class="hardware-info">
+                <h3>CYBER TECHNOLOGY</h3>
+                <p>Segurança e sistemas digitais</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="circuit-panel reveal">
+        <div class="circuit-item"><span>🧠</span><strong>PROCESSAMENTO</strong></div>
+        <div class="circuit-item"><span>⚡</span><strong>ELETRÔNICA</strong></div>
+        <div class="circuit-item"><span>🌐</span><strong>REDES</strong></div>
+        <div class="circuit-item"><span>💻</span><strong>SOFTWARE</strong></div>
+        <div class="circuit-item"><span>🤖</span><strong>INTELIGÊNCIA ARTIFICIAL</strong></div>
+    </div>
+
+</div>
+</section>
+
+<!-- HABILIDADES -->
+
+<section id="habilidades">
+<div class="container reveal">
+
+    <div class="label">03 / COMPETÊNCIAS</div>
+    <h2 class="title">Conhecimentos e habilidades.</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <span class="card-icon">💻</span>
+            <h3>Desenvolvimento Web</h3>
+            <p>HTML, CSS, JavaScript e criação de interfaces digitais.</p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🐍</span>
+            <h3>Programação</h3>
+            <p>Fundamentos de Python, lógica de programação e algoritmos.</p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🌐</span>
+            <h3>Redes e Sistemas</h3>
+            <p>Fundamentos de redes, sistemas operacionais e infraestrutura.</p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">⚙️</span>
+            <h3>Automação</h3>
+            <p>Arduino, sensores, eletrônica e sistemas de controle.</p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🤖</span>
+            <h3>Inteligência Artificial</h3>
+            <p>Estudos e aplicações de ferramentas de inteligência artificial.</p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🧩</span>
+            <h3>Resolução de problemas</h3>
+            <p>Pensamento lógico, organização e busca por soluções.</p>
+        </div>
+
+    </div>
+
+    <h3 style="color:#00dcff;margin:40px 0 20px;font-family:Orbitron">
+        TECNOLOGIAS
+    </h3>
+
+    <div class="skills">
+        <span class="skill">HTML5</span>
+        <span class="skill">CSS3</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python - Fundamentos</span>
+        <span class="skill">Git e GitHub - Aprendizado</span>
+        <span class="skill">Arduino</span>
+        <span class="skill">Tinkercad</span>
+        <span class="skill">Redes de Computadores</span>
+        <span class="skill">Lógica de Programação</span>
+    </div>
+
+</div>
+</section>
+
+<!-- PROJETOS -->
+
+<section id="projetos">
+<div class="container reveal">
+
+    <div class="label">04 / PORTFÓLIO</div>
+    <h2 class="title">Projetos acadêmicos.</h2>
+
+    <p class="description">
+        Trabalhos e estudos desenvolvidos durante minha
+        formação em Engenharia da Computação.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <span class="card-icon">💧</span>
+            <h3>Controle de reservatório</h3>
+            <p>
+                Projeto com Arduino, sensor HC-SR04, LEDs e buzzer
+                para monitoramento automatizado de nível de água.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🌡️</span>
+            <h3>Monitoramento de temperatura</h3>
+            <p>
+                Estudo de sistema eletrônico para monitoramento
+                de temperatura e conservação de medicamentos e vacinas.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🔌</span>
+            <h3>Automação e eletrônica</h3>
+            <p>
+                Estudos sobre circuitos, sensores, alimentação,
+                proteção e sistemas de controle.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🌐</span>
+            <h3>Desenvolvimento de websites</h3>
+            <p>
+                Desenvolvimento de páginas e interfaces
+                utilizando HTML, CSS e JavaScript.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🛡️</span>
+            <h3>Ética e tecnologia</h3>
+            <p>
+                Estudos sobre cidadania digital, LGPD,
+                responsabilidade e inteligência artificial.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="card-icon">🖥️</span>
+            <h3>Infraestrutura de TI</h3>
+            <p>
+                Estudos de sistemas, redes, monitoramento
+                e fundamentos de infraestrutura.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- OBJETIVO PROFISSIONAL -->
+
+<section>
+<div class="container reveal">
+
+    <div class="label">05 / OBJETIVO PROFISSIONAL</div>
+    <h2 class="title">Construindo meu futuro.</h2>
+
+    <div class="about-box">
+        <p>
+            Busco oportunidades de estágio e posições de nível júnior
+            em Tecnologia da Informação, desenvolvimento de software,
+            suporte técnico, QA e testes, infraestrutura e redes.
+            <br><br>
+            Tenho interesse em oportunidades remotas ou híbridas,
+            nas quais possa aplicar meus conhecimentos, aprender
+            e crescer profissionalmente.
+        </p>
+    </div>
+
+</div>
+</section>
+
+<!-- CONTATO -->
+
+<section id="contato">
+<div class="container reveal">
+
+    <div class="contact-panel">
+        <div class="label">06 / CONEXÕES</div>
+        <h2 class="title">Vamos conversar?</h2>
+
+        <p>
+            Aberta a oportunidades, networking, projetos
+            e conexões profissionais na área de tecnologia.
+        </p>
+
+        <div class="actions" style="justify-content:center">
+
+            <a class="btn primary"
+            href="https://wa.me/5565993470513?text=Ol%C3%A1%20Samia!%20Conheci%20seu%20portf%C3%B3lio."
+            target="_blank" rel="noopener noreferrer">
+                WHATSAPP ↗
+            </a>
+
+            <a class="btn secondary"
+            href="https://www.linkedin.com/in/samia-sabrina-2a972a3ba/"
+            target="_blank" rel="noopener noreferrer">
+                LINKEDIN ↗
+            </a>
+
+            <a class="btn secondary"
+            href="mailto:samiasabrina25@gmail.com">
+                E-MAIL ↗
+            </a>
+
+        </div>
+
+        <p style="margin-top:25px">
+            WhatsApp: (65) 99347-0513
+        </p>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+    © 2026 <span>SAMIA SABRINA</span> | Engenharia da Computação
+    <br><br>
+    Tecnologia • Conhecimento • Inovação
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/5565993470513"
+target="_blank" rel="noopener noreferrer"
+aria-label="WhatsApp">☎</a>
+
+<script>
+
+/* MENU MOBILE */
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+/* ANIMAÇÃO DAS SEÇÕES */
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, {threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+/* MOVIMENTO 3D DOS COMPONENTES COM O MOUSE */
+
+const hardwareCards = document.querySelectorAll(".hardware-card");
+
+hardwareCards.forEach(card => {
+
+    const image = card.querySelector("img");
+
+    card.addEventListener("mousemove", event => {
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateY = ((x - centerX) / centerX) * 15;
+        const rotateX = -((y - centerY) / centerY) * 15;
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.06)
+        `;
+
+        card.style.setProperty("--mx", `${x}px`);
+        card.style.setProperty("--my", `${y}px`);
+
+        image.style.transform = `
+            scale(1.15)
+            translateZ(25px)
+        `;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(0deg)
+            rotateY(0deg)
+            scale(1)
+        `;
+
+        image.style.transform = "scale(1)";
+
+    });
+
+});
+
+/* EFEITO 3D TAMBÉM NOS CARDS DE PROJETOS */
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - .5) * 8;
+        const rotateX = (.5 - y) * 8;
+
+        card.style.transform = `
+            perspective(800px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-6px)
+        `;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+    });
+
+});
+
+</script>
+
+</body>
+</html>
