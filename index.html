@@ -1038,5 +1038,20 @@ document.querySelectorAll(".card").forEach(card => {
 
 </script>
 
+<script>
+// Retirar a marca do ChatGPT do endereço do site
+const endereco = new URL(window.location.href);
+
+if (endereco.searchParams.has("utm_source")) {
+    endereco.searchParams.delete("utm_source");
+
+    window.history.replaceState(
+        {},
+        document.title,
+        endereco.pathname + endereco.search + endereco.hash
+    );
+}
+</script>
+
 </body>
 </html>
